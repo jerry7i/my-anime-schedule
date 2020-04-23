@@ -6,11 +6,11 @@ class Anime extends Component {
 		isSelected: false
 	}
 
-	toggleSelected(title) {
+	toggleSelected(id) {
 		if ( this.state.isSelected ) {
-			this.props.delAnime(title)
+			this.props.delAnime(id)
 		} else {
-			this.props.addAnime(title)
+			this.props.addAnime(id)
 		}
 		this.setState({
 			isSelected: !this.state.isSelected
@@ -20,7 +20,7 @@ class Anime extends Component {
 	render() {
 		const { title, mal_id } = this.props.anime;
 		return (
-			<div onClick={ () => this.toggleSelected(title) }
+			<div onClick={ () => this.toggleSelected(this.props.anime.mal_id) }
 					 style={ cardStyle } >
 				{ title }
 			</div>

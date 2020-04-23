@@ -6,19 +6,19 @@ import jikanjs from 'jikanjs';
 
 class App extends Component {
   state = {
-    animes: [],
-
+    seasonal: [],
+    watching: []
   }
 
   componentDidMount() {
     this.loadSeason()
   }
 
-  async loadSeason() {
+  loadSeason = async() => {
     try {
       const res = await jikanjs.loadSeason(2020, 'spring');
       this.setState({
-        animes: res.anime.slice(0,20)
+        seasonal: res.anime.slice(0,20)
       })
     }
     catch(err) {
@@ -26,19 +26,26 @@ class App extends Component {
     }
   }
 
-  addAnime(anime) {
-    console.log(`add ${anime}`);
+  addAnime = (id) => {
+    this.setState({
+      watching: this.state.watching.concat(id)
+    })
   }
 
-  delAnime(anime) {
-    console.log(`del ${anime}`)
+  delAnime = (id) => {
+    const watching = this.state.watching.filter((itemID) => (
+      itemID !== id
+    ))
+    this.setState({
+      watching: watching
+    })
   }
 
   render() {
     return (
       <AniCards 
         style={ aniCardsStyle } 
-        animes={ this.state.animes } 
+        animes={ this.state.seasonal } 
         addAnime={ this.addAnime }
         delAnime={ this.delAnime }
       />
