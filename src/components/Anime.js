@@ -2,22 +2,35 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Anime extends Component {
+	state = {
+		isSelected: false
+	}
+
+	toggleSelected(title) {
+		if ( this.state.isSelected ) {
+			this.props.delAnime(title)
+		} else {
+			this.props.addAnime(title)
+		}
+		this.setState({
+			isSelected: !this.state.isSelected
+		})
+	}
 
 	render() {
-		//{ mal_id, title } = props.anime;
-		//title = props.anime.title;
-		//mal_id = props.anime.mal_id;
 		const { title, mal_id } = this.props.anime;
-		console.log(this.props.anime);
 		return (
-			<div style={cardStyle}>Title: {title}, ID: {mal_id}</div>
+			<div onClick={ () => this.toggleSelected(title) }
+					 style={ cardStyle } >
+				{ title }
+			</div>
 		);
 	}
 }
 
 const cardStyle = {
-	flex: '1',
-	maxWidth: '10em',
+	//flex: '1',
+	width: '8em',
 	background: '#f4f4f4',
 	padding: '10px',
 	margin: '10px',

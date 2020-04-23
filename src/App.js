@@ -6,31 +6,42 @@ import jikanjs from 'jikanjs';
 
 class App extends Component {
   state = {
-    animes: []
+    animes: [],
+
   }
 
   componentDidMount() {
     this.loadSeason()
   }
 
-  loadSeason() {
-    jikanjs.loadSeason(2020, 'spring').then((response) => {
-      let aniArray = response.anime.slice(0,20);
-      aniArray.forEach((ani) => {
-        ani.key = ani.mal_id
-      });
+  async loadSeason() {
+    try {
+      const res = await jikanjs.loadSeason(2020, 'spring');
       this.setState({
-        animes: aniArray
+        animes: res.anime.slice(0,20)
       })
-      
-    }).catch((err) => {
-      console.error(err)
-    })
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
+
+  addAnime(anime) {
+    console.log(`add ${anime}`);
+  }
+
+  delAnime(anime) {
+    console.log(`del ${anime}`)
   }
 
   render() {
     return (
-      <AniCards style={ aniCardsStyle } animes={this.state.animes}/>
+      <AniCards 
+        style={ aniCardsStyle } 
+        animes={ this.state.animes } 
+        addAnime={ this.addAnime }
+        delAnime={ this.delAnime }
+      />
     )
   }
 }

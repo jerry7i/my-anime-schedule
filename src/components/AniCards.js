@@ -9,7 +9,13 @@ class AniCards extends Component {
 		return (
 			<div style={aniCardsStyle}>
 				{animes.map(
-					(anime) => (<Anime anime={anime}/>)
+					(anime) => (
+						<Anime anime={ anime } 
+									 addAnime={ this.props.addAnime }
+									 delAnime={ this.props.delAnime }
+									 key={ anime.mal_id }
+						/>
+					)
 				)}
 			</div>
 		);
@@ -22,7 +28,6 @@ const aniCardsStyle = {
 	flexDirection: 'row',
 	flexWrap: 'wrap',
 	justifyContent: 'center',
-	margin: '20px'
 }
 
 AniCards.propTypes = {
