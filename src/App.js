@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
-import AniCards, { aniCardsStyle } from './components/AniCards';
+import AniCards from './components/AniCards';
+import Schedule from './components/Schedule';
 
 import jikanjs from 'jikanjs';
 
 class App extends Component {
   state = {
     seasonal: [],
-    watching: []
+    watching: [],
+    renderWatchlist: [],
+    showSchedule: false
   }
 
   componentDidMount() {
@@ -41,22 +44,33 @@ class App extends Component {
     })
   }
 
-  getSchedule = () => {
-    console.log(this.state.watching)
+  showSchedule = () => {
+    this.setState({
+      renderWatchlist: this.state.watching,
+      showSchedule: true
+    })
   }
 
   render() {
+    const watchlist = this.state.renderWatchlist
+    let schedule = <></>
+    if ( this.state.showSchedule ) {
+      schedule = <Schedule watching={watchlist} />
+    }
+
     return (
       <div className='container'>
-        <AniCards 
-          style={ aniCardsStyle } 
+        <AniCards
           animes={ this.state.seasonal } 
           addAnime={ this.addAnime }
           delAnime={ this.delAnime }
           />
         <br/>
-        <button className="btn" onClick={this.getSchedule}>Get Schedule</button>
-        <div></div>
+        <button className="btn" 
+                onClick={this.showSchedule}>
+          Get Schedule
+        </button>
+        {schedule}
       </div>
     )
   }

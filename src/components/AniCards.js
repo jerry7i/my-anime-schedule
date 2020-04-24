@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Anime from './Anime';
 import PropTypes from 'prop-types';
 
-class AniCards extends Component {
-
-	render() {
-		const animes = this.props.animes;
-		return (
-			<div style={aniCardsStyle}>
-				{animes.map(
-					(anime) => (
-						<Anime anime={ anime } 
-									 addAnime={ this.props.addAnime }
-									 delAnime={ this.props.delAnime }
-									 key={ anime.mal_id }
-						/>
-					)
-				)}
-			</div>
-		);
-	}
+function AniCards(props) {
+	const animes = props.animes;
+	return (
+		<div style={aniCardsStyle}>
+			{animes.map(
+				(anime) => (
+					<Anime anime={ anime } 
+									addAnime={ props.addAnime }
+									delAnime={ props.delAnime }
+									key={ anime.mal_id }
+					/>
+				)
+			)}
+		</div>
+	);
 }
 
 const aniCardsStyle = {
@@ -36,5 +33,4 @@ AniCards.propTypes = {
 	delAnime: PropTypes.func.isRequired,
 }
 
-export { aniCardsStyle };
 export default AniCards;
