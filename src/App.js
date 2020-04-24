@@ -10,7 +10,6 @@ class App extends Component {
     seasonal: [],
     watching: [],
     renderWatchlist: [],
-    showSchedule: false
   }
 
   componentDidMount() {
@@ -44,19 +43,14 @@ class App extends Component {
     })
   }
 
-  showSchedule = () => {
+  setWatchlist = () => {
     this.setState({
-      renderWatchlist: this.state.watching,
-      showSchedule: true
+      renderWatchlist: this.state.watching
     })
   }
 
   render() {
     const watchlist = this.state.renderWatchlist
-    let schedule = <></>
-    if ( this.state.showSchedule ) {
-      schedule = <Schedule watching={watchlist} />
-    }
 
     return (
       <div className='container'>
@@ -66,11 +60,10 @@ class App extends Component {
           delAnime={ this.delAnime }
           />
         <br/>
-        <button className="btn" 
-                onClick={this.showSchedule}>
-          Get Schedule
-        </button>
-        {schedule}
+        
+        <Schedule watching={watchlist} 
+                  setWatchlist={this.setWatchlist}
+                  />
       </div>
     )
   }
