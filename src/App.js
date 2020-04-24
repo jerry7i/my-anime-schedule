@@ -41,14 +41,23 @@ class App extends Component {
     })
   }
 
+  getSchedule = () => {
+    console.log(this.state.watching)
+  }
+
   render() {
     return (
-      <AniCards 
-        style={ aniCardsStyle } 
-        animes={ this.state.seasonal } 
-        addAnime={ this.addAnime }
-        delAnime={ this.delAnime }
-      />
+      <div className='container'>
+        <AniCards 
+          style={ aniCardsStyle } 
+          animes={ this.state.seasonal } 
+          addAnime={ this.addAnime }
+          delAnime={ this.delAnime }
+          />
+        <br/>
+        <button className="btn" onClick={this.getSchedule}>Get Schedule</button>
+        <div></div>
+      </div>
     )
   }
 }

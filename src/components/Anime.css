@@ -1,12 +1,15 @@
 .card {
   width: 8em;
-	background: #DDD;
+	background: #353535;
+	color: #DDD;
 	padding: 10px;
 	margin: 10px;
+	border-radius: 6px;
 	transition: filter 200ms;
 }
 
 .card:hover {
-	filter: brightness(1.1);
+	filter: brightness(1.5);
+	color: #ccc;
 	cursor: pointer;
 }

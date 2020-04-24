@@ -23,7 +23,7 @@ class Anime extends Component {
 		const isSelected = this.state.isSelected;
 		return (
 			<div className='card' 
-					 style={ isSelected ? selected : {} }
+					 style={ isSelected ? selectedStyle : {} }
 					 onClick={ () => this.toggleSelected(mal_id) }
 			>
 				{ title }
@@ -32,8 +32,9 @@ class Anime extends Component {
 	}
 }
 
-const selected = {
-	filter: 'brightness(1.1)'
+const selectedStyle = {
+	filter: 'brightness(2)',
+	color: '#BBB'
 }
 
 Anime.propTypes = {
