@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './Anime.css';
 
 class Anime extends Component {
 	state = {
@@ -19,25 +20,26 @@ class Anime extends Component {
 
 	render() {
 		const { title, mal_id } = this.props.anime;
+		const isSelected = this.state.isSelected;
 		return (
-			<div onClick={ () => this.toggleSelected(this.props.anime.mal_id) }
-					 style={ cardStyle } >
+			<div className='card' 
+					 style={ isSelected ? selected : {} }
+					 onClick={ () => this.toggleSelected(mal_id) }
+			>
 				{ title }
 			</div>
 		);
 	}
 }
 
-const cardStyle = {
-	//flex: '1',
-	width: '8em',
-	background: '#f4f4f4',
-	padding: '10px',
-	margin: '10px',
+const selected = {
+	filter: 'brightness(1.1)'
 }
 
 Anime.propTypes = {
 	anime: PropTypes.object.isRequired,
+	addAnime: PropTypes.func.isRequired,
+	delAnime: PropTypes.func.isRequired,
 }
 
 export default Anime;

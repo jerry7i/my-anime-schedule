@@ -32,6 +32,8 @@ const aniCardsStyle = {
 
 AniCards.propTypes = {
 	animes: PropTypes.array.isRequired,
+	addAnime: PropTypes.func.isRequired,
+	delAnime: PropTypes.func.isRequired,
 }
 
 export { aniCardsStyle };

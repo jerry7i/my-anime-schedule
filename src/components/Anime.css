@@ -1,0 +1,12 @@
+.card {
+  width: 8em;
+	background: #DDD;
+	padding: 10px;
+	margin: 10px;
+	transition: filter 200ms;
+}
+
+.card:hover {
+	filter: brightness(1.1);
+	cursor: pointer;
+}
