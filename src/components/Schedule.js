@@ -2,10 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import jikanjs from 'jikanjs';
 
+const emptySchedule = {
+	sunday: [],
+	monday: [],
+	tuesday: [],
+	wednesday: [],
+	thursday: [],
+	friday: [],
+	saturday: []
+}
+
 class Schedule extends Component {
 	state = {
-		fullSchedule: [],
-		mySchedule: [],
+		fullSchedule: {},
+		mySchedule: emptySchedule,
+		watchlist: []
 	}
 
 	componentDidMount() {
@@ -14,8 +25,8 @@ class Schedule extends Component {
 
 	loadSchedule = async() => {
 		try {
-			const schedule = await jikanjs.loadSchedule()
-			console.log(schedule)
+			let schedule = await jikanjs.loadSchedule()
+
 			this.setState({
 				fullSchedule: schedule
 			})
@@ -26,15 +37,58 @@ class Schedule extends Component {
 	}
 	
 	getSchedule = async() => {
-		console.log('getSchedule')
-		await this.props.setWatchlist()
+		await this.props.setWatchlist();
+		
+		try {
+			const watchlist = this.props.watching.slice();
+			const prevWatchlist = this.state.watchlist.slice();
+			watchlist.sort();
+			prevWatchlist.sort();
 
-		//TODO: filter the fullSchedule for a personalized one
+			if (watchlist.length === 0) {
+				this.setState({
+					mySchedule: emptySchedule,
+					watchlist: []
+				})
+			}
+			// Check if user selects something different
+			else if (JSON.stringify(watchlist) !== JSON.stringify(prevWatchlist)) {
+				console.log('Changing schedule...')
+				const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+				
+				//TODO: filter the fullSchedule for a personalized one
+				let schedule = {
+					sunday: [],
+					monday: [],
+					tuesday: [],
+					wednesday: [],
+					thursday: [],
+					friday: [],
+					saturday: []
+				};
+				
+				days.forEach((day) => {
+					const airing = this.state.fullSchedule[day];
+					console.log(`${day}: `,airing.filter((anime) => (
+						watchlist.includes(anime.mal_id)
+					)));
+					const airingToday = airing.filter((anime) => (
+						watchlist.includes(anime.mal_id)
+					))
 
-		this.setState({
-			showSchedule: true,
-			mySchedule: this.props.watching
-		})
+					schedule[day].push(...airingToday);
+				})
+				console.log(schedule)
+
+				this.setState({
+					mySchedule: schedule,
+					watchlist: watchlist
+				})
+			}
+		}
+		catch (err) {
+			console.error(err)
+		}
 	}
 
 	render() {
