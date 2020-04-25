@@ -1,0 +1,25 @@
+.btn {
+  display: inline-block;
+  border: none;
+  background: #2A2A2A;
+  color: #DDD;
+  padding: 7px 20px;
+  border: solid 0px #EEE;
+  border-radius: 5px;
+  font-size: 1.5em;
+  text-decoration: none;
+  outline: none;
+  width: 200px;
+  height: 50px;
+  cursor:pointer;
+  transition: background 200ms, border-width 100ms linear ;
+}
+
+.btn:hover {
+  background-color: #333;
+  border-width: 1.5px;
+}
+
+.btn:active {
+  border-width: 3px;
+}

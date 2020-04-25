@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Today from './Today';
 import PropTypes from 'prop-types';
 import jikanjs from 'jikanjs';
+import './Schedule.css';
 
 const emptySchedule = {
 	sunday: [],
@@ -11,6 +13,8 @@ const emptySchedule = {
 	friday: [],
 	saturday: []
 }
+
+const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 class Schedule extends Component {
 	state = {
@@ -38,56 +42,50 @@ class Schedule extends Component {
 	
 	getSchedule = async() => {
 		await this.props.setWatchlist();
-		
-		try {
-			const watchlist = this.props.watching.slice();
-			const prevWatchlist = this.state.watchlist.slice();
-			watchlist.sort();
-			prevWatchlist.sort();
+	
+		const watchlist = this.props.watching.slice();
+		const prevWatchlist = this.state.watchlist.slice();
+		watchlist.sort();
+		prevWatchlist.sort();
 
-			if (watchlist.length === 0) {
-				this.setState({
-					mySchedule: emptySchedule,
-					watchlist: []
-				})
-			}
-			// Check if user selects something different
-			else if (JSON.stringify(watchlist) !== JSON.stringify(prevWatchlist)) {
-				console.log('Changing schedule...')
-				const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-				
-				//TODO: filter the fullSchedule for a personalized one
-				let schedule = {
-					sunday: [],
-					monday: [],
-					tuesday: [],
-					wednesday: [],
-					thursday: [],
-					friday: [],
-					saturday: []
-				};
-				
-				days.forEach((day) => {
-					const airing = this.state.fullSchedule[day];
-					console.log(`${day}: `,airing.filter((anime) => (
-						watchlist.includes(anime.mal_id)
-					)));
-					const airingToday = airing.filter((anime) => (
-						watchlist.includes(anime.mal_id)
-					))
-
-					schedule[day].push(...airingToday);
-				})
-				console.log(schedule)
-
-				this.setState({
-					mySchedule: schedule,
-					watchlist: watchlist
-				})
-			}
+		if (watchlist.length === 0) {
+			this.setState({
+				mySchedule: emptySchedule,
+				watchlist: []
+			})
 		}
-		catch (err) {
-			console.error(err)
+		// Check if user selects something different
+		else if (JSON.stringify(watchlist) !== JSON.stringify(prevWatchlist)) {
+			console.log('Changing schedule...');
+			
+			//TODO: filter the fullSchedule for a personalized one
+			let schedule = {
+				sunday: [],
+				monday: [],
+				tuesday: [],
+				wednesday: [],
+				thursday: [],
+				friday: [],
+				saturday: []
+			};
+			
+			days.forEach((day) => {
+				const airing = this.state.fullSchedule[day];
+				console.log(`${day}: `,airing.filter((anime) => (
+					watchlist.includes(anime.mal_id)
+				)));
+				const airingToday = airing.filter((anime) => (
+					watchlist.includes(anime.mal_id)
+				))
+
+				schedule[day].push(...airingToday);
+			})
+			console.log(schedule)
+
+			this.setState({
+				mySchedule: schedule,
+				watchlist: watchlist
+			})
 		}
 	}
 
@@ -99,8 +97,16 @@ class Schedule extends Component {
 								onClick={() => this.getSchedule()}>
 						Get Schedule
 				</button>
-				{(schedule.length > 0) &&
-				<div style={scheduleStyle}>{this.state.mySchedule}</div>
+
+				{(this.state.watchlist.length > 0) &&
+				<div style={scheduleStyle}>
+					{days.map((day) => (
+						<Today day={day}
+									 schedule={schedule[day]}
+									 key={day}
+									 />
+					))}
+				</div>
 				}
 			</>
 		)
@@ -108,6 +114,10 @@ class Schedule extends Component {
 }
 
 const scheduleStyle = {
+	display: 'flex',
+	flexDirection: 'row',
+	flexWrap: 'wrap',
+	justifyContent: 'center',
 	margin: '50px',
 	color: '#EEE'
 }
