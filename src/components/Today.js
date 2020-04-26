@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Showtime from './Showtime';
+import TodayItem from './TodayItem';
 
 export default function Today(props) {
 	const sortedByTime = (schedule) => {
@@ -9,10 +9,11 @@ export default function Today(props) {
 
 	return (
 		<div style={todayStyle}>
-			{props.day}
+			<p style={{marginBottom: '10px'}}>{props.day}</p>
+
 			{props.schedule.map((anime,i) => (
-				<Showtime anime={anime}
-									key={anime.mal_id}/>
+				<TodayItem anime={anime}
+									 key={anime.mal_id}/>
 			))}
 		</div>
 	)
@@ -21,8 +22,8 @@ export default function Today(props) {
 const todayStyle = {
 	padding: '10px',
 	margin: '5px',
-	width: '160px',
-	border: 'solid 1px white'
+	width: '180px',
+	border: 'solid 1px white',
 }
 
 Today.propTypes = {

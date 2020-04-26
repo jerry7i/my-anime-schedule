@@ -1,0 +1,6 @@
+.today-item {
+	margin: 0;
+	padding: 10px 5px;
+	border-top: solid 1px #DDD;
+	overflow: auto;
+}

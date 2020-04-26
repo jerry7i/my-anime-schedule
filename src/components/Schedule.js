@@ -118,7 +118,7 @@ const scheduleStyle = {
 	flexDirection: 'row',
 	flexWrap: 'wrap',
 	justifyContent: 'center',
-	margin: '50px',
+	margin: '50px 0px',
 	color: '#EEE'
 }
 
