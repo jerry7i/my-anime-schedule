@@ -5,10 +5,16 @@ import PropTypes from 'prop-types';
 export default function TodayItem(props) {
 	const airing = props.anime.airing_start
 	const date = new Date(airing)
-	console.log(date.getDay())
+	let hour = date.getHours()
+	let min = date.getMinutes()
+	const ampm = (hour < 12) ? 'AM' : 'PM'
+	hour = (hour <= 12) ? hour : hour % 12;
+	min = (min < 10) ? '0'+min : min
+
+	const airTime = hour + ':' + min + ' ' + ampm
 	return (
 		<div className="today-item">
-			<p style={timeStyle}>{props.anime.airing_start.slice(11)}</p>
+			<p style={timeStyle}>{airTime}</p>
 
 			<img src={props.anime.image_url}
 			     alt={props.anime.title}
