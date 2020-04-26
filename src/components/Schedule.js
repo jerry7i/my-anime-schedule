@@ -71,14 +71,18 @@ class Schedule extends Component {
 			
 			days.forEach((day) => {
 				const airing = this.state.fullSchedule[day];
-				console.log(`${day}: `,airing.filter((anime) => (
-					watchlist.includes(anime.mal_id)
-				)));
+				
 				const airingToday = airing.filter((anime) => (
 					watchlist.includes(anime.mal_id)
-				))
+				));
+				console.log(`${day}: `,airingToday);
+				// add each anime to schedule based on local time
+				airingToday.forEach((anime) => {
+					const localTime = new Date(anime.airing_start);
+					const dayOfWeek = days[localTime.getDay()] //sun-sat
 
-				schedule[day].push(...airingToday);
+					schedule[dayOfWeek].push(anime);
+				})
 			})
 			console.log(schedule)
 
