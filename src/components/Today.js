@@ -30,8 +30,10 @@ const todayStyle = {
 	padding: '10px',
 	margin: '5px',
 	minWidth: '200px',
+	height: 'inherit',
 	flex: '1',
-	border: 'solid 1px #EEE',
+	backgroundColor: '#222',
+	//border: 'solid 1px #EEE',
 	borderRadius: '10px'
 }
 

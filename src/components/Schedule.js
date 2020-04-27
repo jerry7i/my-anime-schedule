@@ -120,6 +120,7 @@ class Schedule extends Component {
 const scheduleStyle = {
 	display: 'flex',
 	flexDirection: 'row',
+	alignItems: 'flex-start',
 	flexWrap: 'wrap',
 	justifyContent: 'center',
 	marginTop: '50px',
