@@ -3,9 +3,16 @@ import PropTypes from 'prop-types';
 import TodayItem from './TodayItem';
 
 export default function Today(props) {
-	const sortedByTime = (schedule) => {
-		console.log('sort')
+	const compareTime = (aniA, aniB) => {
+		const dateA = new Date(aniA.airing_start);
+		const dateB = new Date(aniB.airing_start);
+		dateA.setMonth(0); dateA.setDate(1);
+		dateB.setMonth(0); dateB.setDate(1);
+		return ( dateA - dateB )
 	}
+	
+	let schedule = props.schedule
+	schedule.sort(compareTime)
 
 	return (
 		<div style={todayStyle}>
@@ -23,7 +30,8 @@ const todayStyle = {
 	padding: '10px',
 	margin: '5px',
 	width: '180px',
-	border: 'solid 1px white',
+	border: 'solid 1px #EEE',
+	borderRadius: '10px'
 }
 
 Today.propTypes = {

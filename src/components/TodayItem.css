@@ -1,6 +1,12 @@
 .today-item {
 	margin: 0;
 	padding: 10px 0px;
-	border-top: solid 1px #DDD;
+	/*border-top: solid 1px #DDD;*/
 	overflow: auto;
+	transition: transform 200ms, filter 100ms;
+}
+
+.today-item:hover {
+	filter: brightness(1.4);
+	transform: translateY(-4px);
 }
