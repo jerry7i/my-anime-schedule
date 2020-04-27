@@ -29,7 +29,8 @@ export default function Today(props) {
 const todayStyle = {
 	padding: '10px',
 	margin: '5px',
-	width: '200px',
+	minWidth: '200px',
+	flex: '1',
 	border: 'solid 1px #EEE',
 	borderRadius: '10px'
 }
