@@ -54,6 +54,7 @@ class App extends Component {
 
     return (
       <div className='container'>
+        <h1 className='header'>MyAnimeSchedule</h1>
         <AniCards
           animes={ this.state.seasonal } 
           addAnime={ this.addAnime }

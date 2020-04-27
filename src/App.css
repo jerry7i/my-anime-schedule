@@ -16,6 +16,12 @@ a {
   text-decoration: none;
 }
 
+.header {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #EEE;
+  background-color: #222;
+}
 .container {
   margin: 0;
   padding: 0;

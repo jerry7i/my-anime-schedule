@@ -20,7 +20,6 @@ function AniCards(props) {
 }
 
 const aniCardsStyle = {
-	margin: '10px 0',
 	display: 'flex',
 	flexDirection: 'row',
 	flexWrap: 'wrap',

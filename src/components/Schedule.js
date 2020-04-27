@@ -58,7 +58,7 @@ class Schedule extends Component {
 		else if (JSON.stringify(watchlist) !== JSON.stringify(prevWatchlist)) {
 			console.log('Changing schedule...');
 			
-			//TODO: filter the fullSchedule for a personalized one
+			//filter the fullSchedule for a personalized one
 			let schedule = {
 				sunday: [],
 				monday: [],
