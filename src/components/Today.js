@@ -10,13 +10,13 @@ export default function Today(props) {
 		dateB.setMonth(0); dateB.setDate(1);
 		return ( dateA - dateB )
 	}
-	
+
 	let schedule = props.schedule
 	schedule.sort(compareTime)
-
+	const day = props.day.slice(0,1).toUpperCase() + props.day.slice(1)
 	return (
 		<div style={todayStyle}>
-			<p style={{marginBottom: '10px'}}>{props.day}</p>
+			<p style={{marginBottom: '10px'}}>{day}</p>
 
 			{props.schedule.map((anime,i) => (
 				<TodayItem anime={anime}
@@ -29,7 +29,7 @@ export default function Today(props) {
 const todayStyle = {
 	padding: '10px',
 	margin: '5px',
-	width: '180px',
+	width: '200px',
 	border: 'solid 1px #EEE',
 	borderRadius: '10px'
 }
