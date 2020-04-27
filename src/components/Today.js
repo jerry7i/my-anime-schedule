@@ -14,6 +14,15 @@ export default function Today(props) {
 	let schedule = props.schedule
 	schedule.sort(compareTime)
 	const day = props.day.slice(0,1).toUpperCase() + props.day.slice(1)
+	if (schedule.length === 0) {
+		return (
+			<div style={todayStyle}>
+				<p style={{marginBottom: '10px'}}>{day}</p>
+	
+				<p style={emptyStyle}>Slow day...</p>
+			</div>
+		)
+	}
 	return (
 		<div style={todayStyle}>
 			<p style={{marginBottom: '10px'}}>{day}</p>
@@ -24,6 +33,11 @@ export default function Today(props) {
 			))}
 		</div>
 	)
+}
+
+const emptyStyle = {
+	borderTop: 'solid 1.2px #444',
+	paddingTop: '10px'
 }
 
 const todayStyle = {

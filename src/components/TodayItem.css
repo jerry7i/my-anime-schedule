@@ -1,7 +1,7 @@
 .today-item {
 	margin: 0;
 	padding: 10px 0px;
-	/*border-top: solid 1px #DDD;*/
+	border-top: solid 1.2px #444;
 	overflow: auto;
 	transition: transform 200ms, filter 100ms;
 }
