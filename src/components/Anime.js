@@ -21,15 +21,14 @@ class Anime extends Component {
 	render() {
 		const { title, mal_id, image_url } = this.props.anime;
 		const isSelected = this.state.isSelected;
+
 		return (
 			<div className='card' 
 					 style={ isSelected ? selectedStyle : {} }
 					 onClick={ () => this.toggleSelected(mal_id) }
 			>
-				<div >
-					<img src={image_url} alt={title} style={imgStyle}/>
-				</div>
-				<p style={titleStyle}>{title.slice(0,20)}</p>
+				<img src={image_url} alt={title} style={imgStyle}/>
+				<p  className='title'>{title}</p>
 			</div>
 		);
 	}
@@ -42,9 +41,7 @@ const imgStyle = {
 	borderRadius: '6px 6px 0 0',
 	margin: '0'
 }
-const titleStyle = {
-	padding: '0px 10px'
-}
+
 const selectedStyle = {
 	filter: 'brightness(1.3)',
 	color: '#ccc',

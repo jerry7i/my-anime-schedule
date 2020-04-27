@@ -10,3 +10,12 @@
 	filter: brightness(1.4);
 	transform: translateY(-4px);
 }
+
+.item-title {
+	text-align: left;
+	font-size: 15px;
+	display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+	overflow: hidden;
+}

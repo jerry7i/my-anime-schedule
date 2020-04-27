@@ -20,8 +20,8 @@ export default function TodayItem(props) {
 			     alt={props.anime.title}
 					 style={imgStyle}/>
 
-			<div style={infoStyle}>
-				{props.anime.title.slice(0,20)}
+			<div className='item-title'>
+				{props.anime.title}
 			</div>
 		</div>
 	)
@@ -38,10 +38,6 @@ const imgStyle = {
 const timeStyle = {
 	textAlign: 'left',
 	marginBottom: '5px',
-}
-const infoStyle = {
-	margin: '0',
-	textAlign: 'left',
 }
 
 TodayItem.propTypes = {
