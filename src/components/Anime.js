@@ -43,7 +43,7 @@ const imgStyle = {
 	margin: '0'
 }
 const titleStyle = {
-	padding: '0px 10px 5px 10px'
+	padding: '0px 10px'
 }
 const selectedStyle = {
 	filter: 'brightness(1.3)',

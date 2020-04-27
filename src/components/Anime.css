@@ -1,9 +1,9 @@
 .card {
-  width: 8.2em;
+  width: 8.5em;
 	background: #252525;
 	color: #DDD;
-	padding: 0px;
-	margin: 10px;
+	padding-bottom: 5px;
+	margin: 6px;
 	overflow: visible;
 	border-radius: 6px;
 	transition: filter 150ms, transform 150ms, background 100ms;
