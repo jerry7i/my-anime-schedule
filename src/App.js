@@ -69,20 +69,21 @@ class App extends Component {
   }
 
   render() {
-    const watchlist = this.state.renderWatchlist
-    const animes = this.state.seasonal.slice(0, this.state.numDisplayed)
+    const { renderWatchlist, watching } = this.state;
+    const animes = this.state.seasonal.slice(0, this.state.numDisplayed);
     return (
       <div className='container'>
         <h1 className='header'>MyAnimeSchedule</h1>
         <AniCards
           animes={ animes } 
+          selectedCards={ watching }
           addAnime={ this.addAnime }
           delAnime={ this.delAnime }
           showMore={ this.showMore }
           />
         <br/><br/>
         
-        <Schedule watching={watchlist} 
+        <Schedule watching={renderWatchlist} 
                   setWatchlist={this.setWatchlist}
                   />
       </div>

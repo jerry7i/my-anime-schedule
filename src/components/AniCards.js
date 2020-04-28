@@ -11,9 +11,10 @@ function AniCards(props) {
 				{animes.map(
 					(anime) => (
 						<Anime anime={ anime } 
-										addAnime={ props.addAnime }
-										delAnime={ props.delAnime }
-										key={ anime.mal_id }
+									 selectedCards={ props.selectedCards }
+									 addAnime={ props.addAnime }
+									 delAnime={ props.delAnime }
+									 key={ anime.mal_id }
 						/>
 					)
 				)}
@@ -39,6 +40,7 @@ const aniCardsStyle = {
 
 AniCards.propTypes = {
 	animes: PropTypes.array.isRequired,
+	selectedCards: PropTypes.array.isRequired,
 	addAnime: PropTypes.func.isRequired,
 	delAnime: PropTypes.func.isRequired,
 	showMore: PropTypes.func.isRequired,

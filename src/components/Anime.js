@@ -4,7 +4,9 @@ import './Anime.css';
 
 class Anime extends Component {
 	state = {
-		isSelected: false
+		isSelected: this.props.selectedCards.includes(
+									this.props.anime.mal_id
+								)
 	}
 
 	toggleSelected(id) {
@@ -57,6 +59,7 @@ const selectedStyle = {
 
 Anime.propTypes = {
 	anime: PropTypes.object.isRequired,
+	selectedCards: PropTypes.array.isRequired,
 	addAnime: PropTypes.func.isRequired,
 	delAnime: PropTypes.func.isRequired,
 }
