@@ -18,7 +18,7 @@ class App extends Component {
 
   loadSeason = async() => {
     try {
-      const res = await jikanjs.loadSeason(2020, 'spring');
+      const res = await jikanjs.loadSeason();
       this.setState({
         seasonal: res.anime.slice(0,20)
       })

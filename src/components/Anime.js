@@ -19,16 +19,22 @@ class Anime extends Component {
 	}
 
 	render() {
-		const { title, mal_id, image_url } = this.props.anime;
+		const { title, mal_id, image_url, url } = this.props.anime;
 		const isSelected = this.state.isSelected;
 
 		return (
 			<div className='card' 
 					 style={ isSelected ? selectedStyle : {} }
-					 onClick={ () => this.toggleSelected(mal_id) }
+					  
 			>
-				<img src={image_url} alt={title} style={imgStyle}/>
-				<p  className='title'>{title}</p>
+				<img src={image_url} 
+						 alt={title}
+						 style={imgStyle} 
+						 onClick={ () => this.toggleSelected(mal_id)}
+						 />
+				<a href={url} target="_blank" rel="noopener noreferrer" >
+					<p className='title'>{title}</p>
+				</a>
 			</div>
 		);
 	}
