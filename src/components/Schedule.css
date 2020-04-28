@@ -1,5 +1,4 @@
-.btn {
-  display: inline-block;
+.get-btn {
   border: none;
   background: #2A2A2A;
   color: #DDD;
@@ -13,14 +12,14 @@
   width: 200px;
   height: 50px;
   cursor:pointer;
-  transition: background 200ms, border-width 100ms linear ;
+  transition: background 200ms, border-width 50ms linear ;
 }
 
-.btn:hover {
+.get-btn:hover {
   background-color: #333;
   border-width: 1.5px;
 }
 
-.btn:active {
+.get-btn:active {
   border-width: 3px;
 }

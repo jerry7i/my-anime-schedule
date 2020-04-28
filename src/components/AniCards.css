@@ -1,0 +1,20 @@
+.show-btn {
+  background: #2A2A2A;
+  color: #DDD;
+  padding: 7px 20px;
+	margin-top: 10px;
+	font-size: 15px;
+	border: solid 1px #121212;
+	border-radius: 3px;
+	outline: none;
+	cursor: pointer;
+	transition: background 100ms, border-color 50ms;
+}
+
+.show-btn:hover {
+	background-color: #3A3A3A;
+}
+
+.show-btn:active {
+	border-color: #EEE;
+}

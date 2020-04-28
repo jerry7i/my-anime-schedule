@@ -10,6 +10,7 @@ class App extends Component {
     seasonal: [],
     watching: [],
     renderWatchlist: [],
+    numDisplayed: 20
   }
 
   componentDidMount() {
@@ -20,7 +21,7 @@ class App extends Component {
     try {
       const res = await jikanjs.loadSeason();
       this.setState({
-        seasonal: res.anime.slice(0,20)
+        seasonal: res.anime
       })
     }
     catch(err) {
@@ -49,18 +50,37 @@ class App extends Component {
     })
   }
 
+  showMore = (more) => {
+    const { seasonal, numDisplayed } = this.state
+
+    if (more) {
+      if ( numDisplayed < seasonal.length ) {
+        this.setState({
+          numDisplayed: this.state.numDisplayed + 10
+        })
+      }
+    } else {
+      if ( numDisplayed > 0 ) {
+        this.setState({
+          numDisplayed: this.state.numDisplayed - 10
+        })
+      }
+    }
+  }
+
   render() {
     const watchlist = this.state.renderWatchlist
-
+    const animes = this.state.seasonal.slice(0, this.state.numDisplayed)
     return (
       <div className='container'>
         <h1 className='header'>MyAnimeSchedule</h1>
         <AniCards
-          animes={ this.state.seasonal } 
+          animes={ animes } 
           addAnime={ this.addAnime }
           delAnime={ this.delAnime }
+          showMore={ this.showMore }
           />
-        <br/>
+        <br/><br/>
         
         <Schedule watching={watchlist} 
                   setWatchlist={this.setWatchlist}

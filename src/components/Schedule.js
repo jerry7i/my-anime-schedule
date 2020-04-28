@@ -97,9 +97,9 @@ class Schedule extends Component {
 		const schedule = this.state.mySchedule
 		return (
 			<>
-				<button className="btn" 
+				<button className="get-btn" 
 								onClick={() => this.getSchedule()}>
-						Get Schedule
+					Get Schedule
 				</button>
 
 				{(this.state.watchlist.length > 0) &&
