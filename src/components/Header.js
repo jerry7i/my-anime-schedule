@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll';
 
 export default function Header() {
 	const scrollToTop = () => {
-		scroll.scrollToTop(0.1)
+		scroll.scrollToTop({duration: 500})
 	}
 
 	return (
