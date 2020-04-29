@@ -23,8 +23,9 @@ class Schedule extends Component {
 		watchlist: []
 	}
 
-	componentDidMount() {
-		this.loadSchedule()
+	componentDidMount = async() => {
+		await this.loadSchedule()
+		this.getSchedule()
 	}
 
 	loadSchedule = async() => {

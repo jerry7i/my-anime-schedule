@@ -22,7 +22,7 @@ class App extends Component {
     this.state = {
       watching: cookies.get('watching') || [],
       seasonal: [],
-      renderWatchlist: [],
+      renderWatchlist: cookies.get('watching') || [],
       numDisplayed: displayed,
     };
   }
