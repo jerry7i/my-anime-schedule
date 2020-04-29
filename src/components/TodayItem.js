@@ -11,16 +11,17 @@ export default function TodayItem(props) {
 	min = (min < 10) ? '0'+min : min;
 
 	const airTime = hour + ':' + min + ' ' + ampm;
+	const { image_url, title } = props.anime;
 	return (
 		<div className="today-item">
 			<p style={timeStyle}>{airTime}</p>
 
-			<img src={props.anime.image_url}
-			     alt={props.anime.title}
+			<img src={image_url}
+			     alt={title}
 					 style={imgStyle}/>
 
 			<div className='item-title'>
-				{props.anime.title}
+				{title}
 			</div>
 		</div>
 	)
