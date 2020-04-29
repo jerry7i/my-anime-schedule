@@ -99,15 +99,18 @@ class Schedule extends Component {
 				<Link
             to='schedule'
             smooth={true}
-            offset={-70}
-						duration= {700}
+            offset={-90}
+						duration= {600}
 						>      
 					<button className="get-btn" 
 									onClick={() => this.getSchedule()}>
 						Get Schedule
 					</button>
 				</Link>
-
+				
+				<p style={tipStyle}>
+					Note: times are displayed in your local time zone
+				</p>
 				<div style={scheduleStyle} name='schedule'>
 					{days.map((day) => (
 						<Today day={day}
@@ -127,9 +130,14 @@ const scheduleStyle = {
 	flexDirection: 'row',
 	alignItems: 'flex-start',
 	flexWrap: 'wrap',
-	justifyContent: 'center',
-	marginTop: '50px',
 	color: '#EEE'
+}
+
+const tipStyle = {
+	textAlign: 'left',
+	paddingLeft: '10px',
+	color: '#EEE',
+	marginTop: '40px'
 }
 
 Schedule.propTypes = {
