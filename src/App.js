@@ -121,7 +121,6 @@ class App extends Component {
           showMore={ this.showMore }
           />
         <br/><br/>
-        
         <Schedule watching={renderWatchlist} 
                   setWatchlist={this.setWatchlist}
                   />

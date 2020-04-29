@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Today from './Today';
 import PropTypes from 'prop-types';
-import jikanjs from 'jikanjs';
 import './Schedule.css';
+
+import jikanjs from 'jikanjs';
+import { Link } from 'react-scroll';
 
 const emptySchedule = {
 	sunday: [],
@@ -98,13 +100,21 @@ class Schedule extends Component {
 		const schedule = this.state.mySchedule
 		return (
 			<>
-				<button className="get-btn" 
-								onClick={() => this.getSchedule()}>
-					Get Schedule
-				</button>
+				<Link
+            activeClass="active"
+            to='schedule'
+            smooth={true}
+            offset={-5}
+						duration= {700}
+						delay={100}
+						>      
+					<button className="get-btn" 
+									onClick={() => this.getSchedule()}>
+						Get Schedule
+					</button>
+				</Link>
 
-				{(this.state.watchlist.length > 0) &&
-				<div style={scheduleStyle}>
+				<div style={scheduleStyle} name='schedule'>
 					{days.map((day) => (
 						<Today day={day}
 									 schedule={schedule[day]}
