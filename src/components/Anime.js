@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Anime.css';
+import plus_icon from '../images/plus_icon.png'
 
 class Anime extends Component {
 	state = {
@@ -26,11 +27,20 @@ class Anime extends Component {
 			<div className='card' 
 					 style={ isSelected ? selectedStyle : {} }
 					 >
-				<img src={image_url} 
-						 alt={title}
-						 style={imgStyle} 
-						 onClick={ () => this.toggleSelected(mal_id)}
-						 />
+				<div onClick={ () => this.toggleSelected(mal_id)} 
+						 className={ isSelected ? 
+												 'image-selected' : 'image-container'}
+						 >
+					<img src={image_url} 
+							 alt={title}
+						   style={imgStyle} 
+							 />
+					<img src={plus_icon}
+							 alt={'Add Anime'}
+							 className='plus-icon'
+							 />
+				</div>
+
 				<a href={url} target="_blank" rel="noopener noreferrer" >
 					<p className='title'>{title}</p>
 				</a>
@@ -40,6 +50,7 @@ class Anime extends Component {
 }
 
 const imgStyle = {
+	display: 'relative',
 	height: '190px',
 	width: '100%',
 	objectFit: 'cover',
@@ -48,7 +59,7 @@ const imgStyle = {
 }
 
 const selectedStyle = {
-	filter: 'brightness(1.3)',
+	filter: 'brightness(1.2)',
 	color: '#ccc',
 	transform: 'translateY(-8px)',
 	backgroundColor : 'green'

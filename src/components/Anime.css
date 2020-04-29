@@ -6,13 +6,37 @@
 	margin: 6px;
 	
 	border-radius: 6px;
-	transition: filter 150ms, transform 150ms, background 100ms;
+	transition: background 100ms, transform 150ms
 }
 
-.card:hover {
-	filter: brightness(1.3);
-	color: #ccc;
+.image-container {
+	transition: filter 150ms;
+	position: relative;
+}
+.image-container:hover {
+	filter: brightness(1.2);
 	cursor: pointer;
+}
+
+.image-selected {
+	transition: filter 150ms;
+}
+/* no hover effect for .plus-icon when selected */
+.image-selected:hover {
+	cursor: pointer;
+	filter: brightness(1.1);
+}
+
+.plus-icon {
+	position: absolute;
+	opacity: 0;
+	top:35%;
+	right:25%;
+	transition: opacity 150ms, transform 250ms
+}
+.image-container:hover .plus-icon {
+	opacity: 1;
+	transform: rotate(90deg);
 }
 
 .title {
