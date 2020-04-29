@@ -8,12 +8,14 @@ export default function Today(props) {
 		const dateB = new Date(aniB.airing_start);
 		dateA.setMonth(0); dateA.setDate(1);
 		dateB.setMonth(0); dateB.setDate(1);
+
 		return ( dateA - dateB )
 	}
 
 	let schedule = props.schedule
 	schedule.sort(compareTime)
 	const day = props.day.slice(0,1).toUpperCase() + props.day.slice(1)
+	
 	if (schedule.length === 0) {
 		return (
 			<div style={todayStyle}>

@@ -15,10 +15,11 @@ function AniCards(props) {
 									 addAnime={ props.addAnime }
 									 delAnime={ props.delAnime }
 									 key={ anime.mal_id }
-						/>
+									 />
 					)
 				)}
 			</div>
+
 			<button className="show-btn"
 								onClick={() => props.showMore(true)}>
 					show more

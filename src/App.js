@@ -27,7 +27,7 @@ class App extends Component {
     };
   }
 
-  handleWatchingChange(watching) {
+  watchingCookie(watching) {
     const { cookies } = this.props;
     
     const yearLater = new Date();
@@ -36,7 +36,7 @@ class App extends Component {
     cookies.set( 'watching', watching, { expires: yearLater });
     this.setState({ watching });
   }
-  handleNumDisplayedChange(numDisplayed) {
+  numDisplayedCookie(numDisplayed) {
     const { cookies } = this.props;
 
     const yearLater = new Date();
@@ -66,7 +66,7 @@ class App extends Component {
     this.setState({
       watching: this.state.watching.concat(id)
     })
-    this.handleWatchingChange(this.state.watching.concat(id))
+    this.watchingCookie(this.state.watching.concat(id))
   }
 
   delAnime = (id) => {
@@ -76,7 +76,7 @@ class App extends Component {
     this.setState({
       watching: watching
     })
-    this.handleWatchingChange(watching);
+    this.watchingCookie(watching);
   }
 
   setWatchlist = () => {
@@ -90,7 +90,7 @@ class App extends Component {
 
     if (more) {
       if ( numDisplayed < seasonal.length ) {
-        this.handleNumDisplayedChange(numDisplayed + 10)
+        this.numDisplayedCookie(numDisplayed + 10)
         
         this.setState({
           numDisplayed: numDisplayed + 10
@@ -98,7 +98,7 @@ class App extends Component {
       }
     } else {
       if ( numDisplayed > 0 ) {
-        this.handleNumDisplayedChange(numDisplayed - 10)
+        this.numDisplayedCookie(numDisplayed - 10)
         
         this.setState({
           numDisplayed: numDisplayed - 10

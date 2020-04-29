@@ -10,11 +10,9 @@ class Anime extends Component {
 	}
 
 	toggleSelected(id) {
-		if ( this.state.isSelected ) {
-			this.props.delAnime(id)
-		} else {
-			this.props.addAnime(id)
-		}
+		const { delAnime, addAnime } = this.props;
+		this.state.isSelected ? delAnime(id) : addAnime(id)
+		
 		this.setState({
 			isSelected: !this.state.isSelected
 		})
@@ -27,8 +25,7 @@ class Anime extends Component {
 		return (
 			<div className='card' 
 					 style={ isSelected ? selectedStyle : {} }
-					  
-			>
+					 >
 				<img src={image_url} 
 						 alt={title}
 						 style={imgStyle} 

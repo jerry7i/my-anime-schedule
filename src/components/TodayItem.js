@@ -3,15 +3,14 @@ import './TodayItem.css';
 import PropTypes from 'prop-types';
 
 export default function TodayItem(props) {
-	const airing = props.anime.airing_start
-	const date = new Date(airing)
-	let hour = date.getHours()
-	let min = date.getMinutes()
-	const ampm = (hour < 12) ? 'AM' : 'PM'
+	const date = new Date(props.anime.airing_start);
+	let hour = date.getHours(); 
+	let min = date.getMinutes();
+	const ampm = (hour < 12) ? 'AM' : 'PM';
 	hour = (hour <= 12) ? hour : hour % 12;
-	min = (min < 10) ? '0'+min : min
+	min = (min < 10) ? '0'+min : min;
 
-	const airTime = hour + ':' + min + ' ' + ampm
+	const airTime = hour + ':' + min + ' ' + ampm;
 	return (
 		<div className="today-item">
 			<p style={timeStyle}>{airTime}</p>
