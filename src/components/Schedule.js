@@ -58,9 +58,7 @@ class Schedule extends Component {
 			})
 		}
 		// Check if user selects something different
-		else if (JSON.stringify(watchlist) !== JSON.stringify(prevWatchlist)) {
-			console.log('Changing schedule...');
-			
+		else if (JSON.stringify(watchlist) !== JSON.stringify(prevWatchlist)) {			
 			//filter the fullSchedule for a personalized one
 			let schedule = {
 				sunday: [],
@@ -75,19 +73,17 @@ class Schedule extends Component {
 			days.forEach((day) => {
 				const airing = this.state.fullSchedule[day];
 				
-				const airingToday = airing.filter((anime) => (
+				const airingSelected = airing.filter((anime) => (
 					watchlist.includes(anime.mal_id)
 				));
-				console.log(`${day}: `,airingToday);
 				// add each anime to schedule based on local time
-				airingToday.forEach((anime) => {
+				airingSelected.forEach((anime) => {
 					const localTime = new Date(anime.airing_start);
 					const dayOfWeek = days[localTime.getDay()] //sun-sat
 
 					schedule[dayOfWeek].push(anime);
 				})
 			})
-			console.log(schedule)
 
 			this.setState({
 				mySchedule: schedule,
