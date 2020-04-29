@@ -99,7 +99,7 @@ class Schedule extends Component {
 				<Link
             to='schedule'
             smooth={true}
-            offset={-5}
+            offset={-70}
 						duration= {700}
 						>      
 					<button className="get-btn" 
