@@ -101,12 +101,10 @@ class Schedule extends Component {
 		return (
 			<>
 				<Link
-            activeClass="active"
             to='schedule'
             smooth={true}
             offset={-5}
 						duration= {700}
-						delay={100}
 						>      
 					<button className="get-btn" 
 									onClick={() => this.getSchedule()}>
