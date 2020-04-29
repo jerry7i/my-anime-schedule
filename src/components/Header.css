@@ -1,0 +1,20 @@
+
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	text-align: center;
+  padding: 10px;
+  color: #EEE;
+  background-color: #222;
+  z-index: 99;
+}
+
+.header-text {
+	display: inline-block;
+}
+
+.header-text:hover {
+	cursor: pointer;
+	color: green;
+}

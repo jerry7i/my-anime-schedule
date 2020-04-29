@@ -1,19 +1,18 @@
-import React from 'react'
+import React from 'react';
+import './Header.css';
+import { animateScroll as scroll } from 'react-scroll';
 
 export default function Header() {
+	const scrollToTop = () => {
+		scroll.scrollToTop(0.1)
+	}
+
 	return (
-		<div style={headerStyle}>
-			<h1>MyAnimeSchedule</h1>
+		<div class='header'>
+			<h1 onClick={() => scrollToTop()}
+					class='header-text'>
+				MyAnimeSchedule
+			</h1>
 		</div>
 	)
-}
-
-const headerStyle = {
-	position: 'fixed',
-	width: '100%',
-	top: '0',
-	padding: '10px',
-	color: '#EEE',
-	backgroundColor: '#222',
-	zIndex: '99',
 }
