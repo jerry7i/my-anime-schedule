@@ -49,11 +49,6 @@
 	transition: filter 50ms;
 }
 
-a {
-	color: #DDD;
-	text-decoration: none;
-}
-
 .title:hover {
 	filter: drop-shadow(1px 1px 1px greenyellow)
 }

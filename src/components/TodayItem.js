@@ -11,29 +11,31 @@ export default function TodayItem(props) {
 	min = (min < 10) ? '0'+min : min;
 
 	const airTime = hour + ':' + min + ' ' + ampm;
-	const { image_url, title } = props.anime;
+	const { image_url, title, url } = props.anime;
 	return (
 		<div className="today-item">
 			<p style={timeStyle}>{airTime}</p>
-
+			<a href={url} target="_blank" rel="noopener noreferrer">
 			<img src={image_url}
 			     alt={title}
 					 style={imgStyle}/>
-
-			<div className='item-title'>
-				{title}
-			</div>
+			
+			
+				<div className='item-title'>
+					{title}
+				</div>
+			</a>
 		</div>
 	)
 }
 
 const imgStyle = {
 	float: 'left',
-	width: '50px',
-	height: '50px',
+	width: '60px',
+	height: '60px',
 	marginRight: '10px',
 	objectFit: 'cover',
-	borderRadius: '30%',
+	borderRadius: '6px',
 }
 const timeStyle = {
 	textAlign: 'left',

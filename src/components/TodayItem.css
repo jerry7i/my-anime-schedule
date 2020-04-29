@@ -8,14 +8,18 @@
 
 .today-item:hover {
 	filter: brightness(1.4);
-	transform: translateY(-4px);
+	transform: translateY(-3px);
 }
 
 .item-title {
 	text-align: left;
 	font-size: 15px;
 	display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
 	overflow: hidden;
+}
+
+.item-title:hover {
+	filter: drop-shadow(1px 1px 1px greenyellow)
 }
