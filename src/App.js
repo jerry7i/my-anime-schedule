@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { instanceOf } from 'prop-types';
+import Header from './components/Header';
 import AniCards from './components/AniCards';
 import Schedule from './components/Schedule';
 
@@ -112,7 +113,8 @@ class App extends Component {
     const animes = this.state.seasonal.slice(0, this.state.numDisplayed);
     return (
       <div className='container'>
-        <h1 className='header'>MyAnimeSchedule</h1>
+        <Header/>
+
         <AniCards
           animes={ animes } 
           selectedCards={ watching }
