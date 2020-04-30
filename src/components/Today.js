@@ -43,7 +43,7 @@ const emptyStyle = {
 }
 
 const todayStyle = {
-	padding: '10px',
+	padding: '10px 10px 4px 10px',
 	margin: '5px',
 	minWidth: '200px',
 	height: 'inherit',
