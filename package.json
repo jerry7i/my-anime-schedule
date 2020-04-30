@@ -1,5 +1,6 @@
 {
-  "name": "my-anime-watchlist",
+  "homepage": "https://jerry7i.github.io/my-anime-schedule",
+  "name": "my-anime-schedule",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,6 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://jerry7i.github.io/my-anime-schedule"
+  }
 }
