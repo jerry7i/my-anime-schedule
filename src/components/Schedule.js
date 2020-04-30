@@ -119,7 +119,6 @@ class Schedule extends Component {
 									 />
 					))}
 				</div>
-				}
 			</>
 		)
 	}
