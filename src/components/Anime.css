@@ -29,14 +29,15 @@
 
 .plus-icon {
 	position: absolute;
+	width: 64px;
 	opacity: 0;
-	top:35%;
-	right:25%;
+	top:75px;
+	right:35px;
 	transition: opacity 150ms, transform 250ms
 }
 .image-container:hover .plus-icon {
 	opacity: 1;
-	transform: rotate(90deg);
+	transform: translateY(-10px);
 }
 
 .title {
