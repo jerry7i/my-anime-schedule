@@ -109,7 +109,7 @@ class Schedule extends Component {
 				</Link>
 				
 				<p style={tipStyle}>
-					Note: times are displayed in your local time zone
+					* times are displayed in your local time zone
 				</p>
 				<div style={scheduleStyle} name='schedule'>
 					{days.map((day) => (
