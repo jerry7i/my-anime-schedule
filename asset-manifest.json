@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/my-anime-schedule/static/css/main.b2083989.chunk.css",
+    "main.css": "/my-anime-schedule/static/css/main.925e8a86.chunk.css",
     "main.js": "/my-anime-schedule/static/js/main.6913d5ab.chunk.js",
     "main.js.map": "/my-anime-schedule/static/js/main.6913d5ab.chunk.js.map",
     "runtime-main.js": "/my-anime-schedule/static/js/runtime-main.35a0f54c.js",
@@ -8,16 +8,16 @@
     "static/js/2.4c47e810.chunk.js": "/my-anime-schedule/static/js/2.4c47e810.chunk.js",
     "static/js/2.4c47e810.chunk.js.map": "/my-anime-schedule/static/js/2.4c47e810.chunk.js.map",
     "index.html": "/my-anime-schedule/index.html",
-    "precache-manifest.e1d4fadaa2262edd70beb28da45130f0.js": "/my-anime-schedule/precache-manifest.e1d4fadaa2262edd70beb28da45130f0.js",
+    "precache-manifest.3ec42326146e58ccd28a57084af703ac.js": "/my-anime-schedule/precache-manifest.3ec42326146e58ccd28a57084af703ac.js",
     "service-worker.js": "/my-anime-schedule/service-worker.js",
-    "static/css/main.b2083989.chunk.css.map": "/my-anime-schedule/static/css/main.b2083989.chunk.css.map",
+    "static/css/main.925e8a86.chunk.css.map": "/my-anime-schedule/static/css/main.925e8a86.chunk.css.map",
     "static/js/2.4c47e810.chunk.js.LICENSE.txt": "/my-anime-schedule/static/js/2.4c47e810.chunk.js.LICENSE.txt",
     "static/media/plus_icon.png": "/my-anime-schedule/static/media/plus_icon.83015675.png"
   },
   "entrypoints": [
     "static/js/runtime-main.35a0f54c.js",
     "static/js/2.4c47e810.chunk.js",
-    "static/css/main.b2083989.chunk.css",
+    "static/css/main.925e8a86.chunk.css",
     "static/js/main.6913d5ab.chunk.js"
   ]
 }

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ee58bea665c273e560d34ccd307afd5b",
+    "revision": "cdb097d5621f7921db56c904a22f8282",
     "url": "/my-anime-schedule/index.html"
   },
   {
-    "revision": "446879d742327b883636",
-    "url": "/my-anime-schedule/static/css/main.b2083989.chunk.css"
+    "revision": "dc7749d6d2d0746e9a84",
+    "url": "/my-anime-schedule/static/css/main.925e8a86.chunk.css"
   },
   {
     "revision": "6524fed5642972d07714",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/my-anime-schedule/static/js/2.4c47e810.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "446879d742327b883636",
+    "revision": "dc7749d6d2d0746e9a84",
     "url": "/my-anime-schedule/static/js/main.6913d5ab.chunk.js"
   },
   {
