@@ -11,7 +11,6 @@
 
 .image-container {
 	transition: filter 150ms;
-	position: relative;
 }
 .image-container:hover {
 	filter: brightness(1.2);
@@ -38,6 +37,10 @@
 .image-container:hover .plus-icon {
 	opacity: 1;
 	transform: translateY(-10px);
+}
+.image-selected:hover .plus-icon {
+	opacity: 1;
+	transform: translateY(-10px) rotate(45deg);
 }
 
 .title {
