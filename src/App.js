@@ -28,6 +28,22 @@ class App extends Component {
     };
   }
 
+  componentDidMount = async() => {
+    await this.loadSeason();
+    this.filterOngoing();
+  }
+
+  filterOngoing() {
+    const { watching, seasonal } = this.state;
+    const seasonalIDs = seasonal.map((anime) => (anime.mal_id));
+    
+    const filtered = watching.filter((id) => (seasonalIDs.includes(id)));
+    this.watchingCookie(filtered);
+    this.setState({
+      watching: filtered
+    })
+  }
+
   watchingCookie(watching) {
     const { cookies } = this.props;
     
@@ -45,10 +61,6 @@ class App extends Component {
 
     cookies.set( 'numDisplayed', numDisplayed, { expires: yearLater });
     this.setState({ numDisplayed })
-  }
-
-  componentDidMount() {
-    this.loadSeason()
   }
 
   loadSeason = async() => {
