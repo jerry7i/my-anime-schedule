@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodayItem from './TodayItem';
 
+const months = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
 export default function Today(props) {
 	const compareTime = (aniA, aniB) => {
 		const dateA = new Date(aniA.airing_start);
@@ -15,24 +18,28 @@ export default function Today(props) {
 	let schedule = props.schedule
 	schedule.sort(compareTime)
 	const day = props.day.slice(0,1).toUpperCase() + props.day.slice(1)
-	
-	if (schedule.length === 0) {
-		return (
-			<div style={todayStyle}>
-				<p style={{marginBottom: '10px'}}>{day}</p>
-	
-				<p style={emptyStyle}>Slow day...</p>
-			</div>
-		)
-	}
+	// get date of current day
+	const curr = new Date()
+	const today = curr.getDate() - curr.getDay() + days.indexOf(props.day);
+	const todayDate = new Date(curr.setDate(today))
+
+	const todayDateStr = `${months[todayDate.getMonth()]} ${todayDate.getDate()}`;
+
 	return (
 		<div style={todayStyle}>
-			<p style={{marginBottom: '10px'}}>{day}</p>
+			<div style={{marginBottom: '10px'}}>
+				<p>{day}</p>
+				<p>{todayDateStr}</p>
+			</div>
 
-			{props.schedule.map((anime,i) => (
-				<TodayItem anime={anime}
-									 key={anime.mal_id}/>
-			))}
+			{schedule.length === 0 ?
+				<p style={emptyStyle}>Slow day...</p> :
+
+				props.schedule.map((anime,i) => (
+					<TodayItem anime={anime}
+											key={anime.mal_id}/>
+				))}
+			
 		</div>
 	)
 }
