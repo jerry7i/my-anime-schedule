@@ -15,21 +15,25 @@ export default function Today(props) {
 		return ( dateA - dateB )
 	}
 
+	// get date of current day of week
+	const getTodayDate = (day) => {
+		const curr = new Date()
+		const today = curr.getDate() - curr.getDay() + days.indexOf(day);
+		const todayDate = new Date(curr.setDate(today))
+		const todayDateStr = `${months[todayDate.getMonth()]} ${todayDate.getDate()}`;
+
+		return todayDateStr;
+	}
+
 	let schedule = props.schedule
 	schedule.sort(compareTime)
 	const day = props.day.slice(0,1).toUpperCase() + props.day.slice(1)
-	// get date of current day
-	const curr = new Date()
-	const today = curr.getDate() - curr.getDay() + days.indexOf(props.day);
-	const todayDate = new Date(curr.setDate(today))
-
-	const todayDateStr = `${months[todayDate.getMonth()]} ${todayDate.getDate()}`;
-
+	
 	return (
 		<div style={todayStyle}>
 			<div style={{marginBottom: '10px'}}>
 				<p>{day}</p>
-				<p>{todayDateStr}</p>
+				<p>{getTodayDate(props.day)}</p>
 			</div>
 
 			{schedule.length === 0 ?
