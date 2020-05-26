@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/my-anime-schedule/static/css/main.925e8a86.chunk.css",
-    "main.js": "/my-anime-schedule/static/js/main.2389a732.chunk.js",
-    "main.js.map": "/my-anime-schedule/static/js/main.2389a732.chunk.js.map",
+    "main.css": "/my-anime-schedule/static/css/main.552c76e7.chunk.css",
+    "main.js": "/my-anime-schedule/static/js/main.81455ef6.chunk.js",
+    "main.js.map": "/my-anime-schedule/static/js/main.81455ef6.chunk.js.map",
     "runtime-main.js": "/my-anime-schedule/static/js/runtime-main.35a0f54c.js",
     "runtime-main.js.map": "/my-anime-schedule/static/js/runtime-main.35a0f54c.js.map",
     "static/js/2.112a8ceb.chunk.js": "/my-anime-schedule/static/js/2.112a8ceb.chunk.js",
     "static/js/2.112a8ceb.chunk.js.map": "/my-anime-schedule/static/js/2.112a8ceb.chunk.js.map",
     "index.html": "/my-anime-schedule/index.html",
-    "precache-manifest.0941da6aaab7dddb79c63713aa210b6e.js": "/my-anime-schedule/precache-manifest.0941da6aaab7dddb79c63713aa210b6e.js",
+    "precache-manifest.afbcbe3dea7576707356ceb501189ddc.js": "/my-anime-schedule/precache-manifest.afbcbe3dea7576707356ceb501189ddc.js",
     "service-worker.js": "/my-anime-schedule/service-worker.js",
-    "static/css/main.925e8a86.chunk.css.map": "/my-anime-schedule/static/css/main.925e8a86.chunk.css.map",
+    "static/css/main.552c76e7.chunk.css.map": "/my-anime-schedule/static/css/main.552c76e7.chunk.css.map",
     "static/js/2.112a8ceb.chunk.js.LICENSE.txt": "/my-anime-schedule/static/js/2.112a8ceb.chunk.js.LICENSE.txt",
     "static/media/plus_icon.png": "/my-anime-schedule/static/media/plus_icon.83015675.png"
   },
   "entrypoints": [
     "static/js/runtime-main.35a0f54c.js",
     "static/js/2.112a8ceb.chunk.js",
-    "static/css/main.925e8a86.chunk.css",
-    "static/js/main.2389a732.chunk.js"
+    "static/css/main.552c76e7.chunk.css",
+    "static/js/main.81455ef6.chunk.js"
   ]
 }
