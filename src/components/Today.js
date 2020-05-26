@@ -32,8 +32,8 @@ export default function Today(props) {
 	return (
 		<div style={todayStyle}>
 			<div style={{marginBottom: '10px'}}>
-				<p>{day}</p>
-				<p>{getTodayDate(props.day)}</p>
+				<p style={dayStyle}>{day}</p>
+				<p style={dateStyle}>{getTodayDate(props.day)}</p>
 			</div>
 
 			{schedule.length === 0 ?
@@ -56,12 +56,21 @@ const emptyStyle = {
 const todayStyle = {
 	padding: '10px 10px 4px 10px',
 	margin: '5px',
-	minWidth: '200px',
+	minWidth: '150px',
 	height: 'inherit',
 	flex: '1',
 	backgroundColor: '#222',
 	//border: 'solid 1px #EEE',
 	borderRadius: '10px'
+}
+
+const dayStyle = {
+	fontSize: '18px'
+}
+
+const dateStyle = {
+	fontSize: '13px',
+	filter: 'opacity(0.65)'
 }
 
 Today.propTypes = {
