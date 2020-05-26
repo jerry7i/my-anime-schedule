@@ -32,15 +32,16 @@
 	opacity: 0;
 	top:75px;
 	right:35px;
-	transition: opacity 150ms, transform 250ms
+	transition: opacity 150ms, transform 300ms, filter 200ms;
 }
 .image-container:hover .plus-icon {
 	opacity: 1;
-	transform: translateY(-10px);
+	transform: translateY(-10px) rotate(180deg);
 }
 .image-selected:hover .plus-icon {
 	opacity: 1;
-	transform: translateY(-10px) rotate(45deg);
+	transform: translateY(-10px) rotate(-135deg);
+	filter: hue-rotate(225deg) saturate(4);
 }
 
 .title {
