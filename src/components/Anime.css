@@ -51,9 +51,9 @@
 	overflow: hidden;
 	padding: 0px 10px;
 	font-size: 14px;
-	transition: filter 50ms;
+	transition: color 50ms;
 }
 
 .title:hover {
-	filter: drop-shadow(1px 1px 1px greenyellow)
+	color: yellow;
 }
