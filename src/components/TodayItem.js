@@ -3,7 +3,7 @@ import "./TodayItem.css";
 import PropTypes from "prop-types";
 
 export default function TodayItem(props) {
-  const airTime = props.anime.localTime.toFormat("cccc, h:mm a"); // e.g., "Thursday, 11:26 AM"
+  const airTime = props.anime.localTime.toFormat("h:mm a"); // e.g., "Thursday, 11:26 AM"
 
   const { images, title_english, title, url } = props.anime;
   return (
